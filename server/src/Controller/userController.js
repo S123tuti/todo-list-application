@@ -10,6 +10,8 @@ const isValidType = (value) => {
 var nameRegex = /^[a-z\s]+$/i;
 var emailRegex = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
 var passwordRegex = /^(?!.\s)[A-Za-z\d@$#!%?&]{8,15}$/;
+
+
 const createUser = async function (req, res) {
   try {
     const data = req.body;
@@ -106,11 +108,7 @@ const createUser = async function (req, res) {
                   .send({ status: false, message: "email and password are required" });
               }
           
-            //   if (!email || !isValidEmail(email)) {
-            //     return res
-            //       .status(400)
-            //       .send({ status: false, message: "Email is required in a valid format" });
-            //   }
+        
           
               let loginUser = await userModel.findOne({ email: email });
               if (!loginUser) {
