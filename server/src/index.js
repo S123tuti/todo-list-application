@@ -1,5 +1,5 @@
 const express = require('express');
-const route = require ('./routes/route.js');
+const route = require ('./router/routes');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express()
@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json());
 app.use(cors())
 
-mongoose.connect("",{
+mongoose.connect("mongodb+srv://stuti3007:w14E1dmx6wAE1h7i@cluster0.rrvbnsb.mongodb.net/loginassign",{
 useNewUrlParser : true
 })
 .then(()=>{
