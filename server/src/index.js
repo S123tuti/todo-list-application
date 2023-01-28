@@ -1,5 +1,5 @@
 const express = require('express');
-const route = require ('./router/routes');
+const router = require ('./router/routes');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express()
@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json());
 app.use(cors())
 
-mongoose.connect("mongodb+srv://stuti3007:w14E1dmx6wAE1h7i@cluster0.rrvbnsb.mongodb.net/loginassign",{
+mongoose.set('strictQuery', true);mongoose.connect("mongodb+srv://stuti3007:w14E1dmx6wAE1h7i@cluster0.rrvbnsb.mongodb.net/loginassign",{
 useNewUrlParser : true
 })
 .then(()=>{
@@ -18,7 +18,7 @@ useNewUrlParser : true
 })
 
 
-app.use('/' , route)
+app.use('/' , router)
 
 app.listen(process.env.PORT || 3001 , function(){
     console.log('Express app is running on port '+(process.env.PORT||3001) )

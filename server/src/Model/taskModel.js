@@ -10,13 +10,13 @@ const taskSchema = new mongoose.Schema({
         required: true
     },
     Priority: {
-
+    required: true
     },
     Status: {
-
+    enum: ['Pending', 'fulfill', 'Rejected']
     },
     createdOn: {
-
+    default: '28/01/23'
     },
 
 },{ timestamps: true})
